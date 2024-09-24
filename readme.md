@@ -8,5 +8,6 @@ A starting point for working with neovim, it contains all the essential starter 
 4. catppuccin (for the colorscheme)
 5. telescope
 
-This neovim starter code was made thanks to this [amazing YouTube guide](https://www.youtube.com/watch?v=J9yqSdvAKXY&list=PLsz00TDipIffxsNXSkskknolKShdbcALR&pp=iAQB).
 
+This neovim starter code was made thanks to this [amazing YouTube guide](https://www.youtube.com/watch?v=J9yqSdvAKXY&list=PLsz00TDipIffxsNXSkskknolKShdbcALR&pp=iAQB).
+    
