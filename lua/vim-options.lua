@@ -30,3 +30,8 @@ vim.keymap.set(
    {}
 )
 
+-- Keymaps for tab management
+vim.keymap.set('n', '<leader>n', ':tabnew<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>x', ':tabclose<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>]', ':tabnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>[', ':tabprevious<CR>', { noremap = true, silent = true })
