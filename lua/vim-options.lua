@@ -5,7 +5,7 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set updatetime=5000")
 vim.cmd("set mouse=")
 vim.cmd("set number")
---vim.cmd("set relativenumber")
+vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 
 -- paste
@@ -37,6 +37,8 @@ vim.keymap.set('n', '<leader>n', ':tabnew<CR>', { noremap = true, silent = true 
 vim.keymap.set('n', '<leader>x', ':tabclose<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>]', ':tabnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>[', ':tabprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>}', ':tabmove+<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>{', ':tabmove-<CR>', { noremap = true, silent = true })
 
 
 -- keymaps for terminal windows
