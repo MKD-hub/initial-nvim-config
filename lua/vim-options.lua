@@ -6,6 +6,7 @@ vim.cmd("set updatetime=5000")
 vim.cmd("set mouse=")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
+vim.opt.path:append { '.', 'src//' }
 vim.g.mapleader = " "
 
 -- paste
@@ -31,6 +32,10 @@ vim.keymap.set(
    '"+y$',
    {}
 )
+
+-- Go to file keyamps
+vim.keymap.set('n', '<leader>gf', '<C-w>v gf<CR>', {noremap = true, silent = true}) -- open in a vertical split
+vim.keymap.set('n', '<leader>gtf', ':tabnew <C-R>=expand("<cfile>")<CR><CR>', { noremap = true, silent = true }) -- open in new tab
 
 -- Keymaps for tab management
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>', { noremap = true, silent = true })
