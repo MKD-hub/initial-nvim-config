@@ -11,30 +11,30 @@ vim.g.mapleader = " "
 
 -- paste
 vim.keymap.set(
-   'n',
-   '<leader>v',
-   '"+P',
-   {}
+  'n',
+  '<leader>v',
+  '"+P',
+  {}
 )
 
 -- copy
 vim.keymap.set(
-   'v',
-   '<leader>c',
-   '"+Y',
-   {}
+  'v',
+  '<leader>c',
+  '"+Y',
+  {}
 )
 
 -- copy single line
 vim.keymap.set(
-   'n',
-   '<leader>cl',
-   '"+y$',
-   {}
+  'n',
+  '<leader>cl',
+  '"+y$',
+  {}
 )
 
 -- Go to file keyamps
-vim.keymap.set('n', '<leader>gf', '<C-w>v gf<CR>', {noremap = true, silent = true}) -- open in a vertical split
+vim.keymap.set('n', '<leader>gf', '<C-w>v gf<CR>', { noremap = true, silent = true })                            -- open in a vertical split
 vim.keymap.set('n', '<leader>gtf', ':tabnew <C-R>=expand("<cfile>")<CR><CR>', { noremap = true, silent = true }) -- open in new tab
 
 -- Keymaps for tab management
@@ -48,3 +48,7 @@ vim.keymap.set('n', '<leader>{', ':tabmove-<CR>', { noremap = true, silent = tru
 
 -- keymaps for terminal windows
 vim.keymap.set('n', '<leader>t', ':sp term://bash<CR>', { noremap = true, silent = true })
+
+
+-- show floating error
+vim.keymap.set('n', 'K', vim.diagnostic.open_float, { desc = 'Show diagnostic message' })
