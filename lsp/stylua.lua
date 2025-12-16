@@ -1,4 +1,4 @@
 return {
-    cmd = { "stylua", "lsp" },
-    filetypes = { "lua" },
+  cmd = { "stylua", "lsp" },
+  filetypes = { "lua" },
 }

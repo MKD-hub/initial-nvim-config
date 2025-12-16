@@ -1,35 +1,41 @@
 return {
-    "stevearc/conform.nvim",
-    lazy = false,
-    keys = {
-        {
-            "<leader>fm",
-            function() require("conform").format() end,
-            mode = "n",
-            desc = "Format buffer with Conform",
-        },
+  "stevearc/conform.nvim",
+  lazy = false,
+  keys = {
+    {
+      "<leader>fm",
+      function() require("conform").format() end,
+      mode = "n",
+      desc = "Format buffer with Conform",
     },
-    opts = {
-        formatters = {
-            biome = {},
-            stylua = {},
-        },
-
-        formatters_by_ft = {
-            -- Use Biome For JS
-            lua = { "stylua" },
-            javascript = { "biome" },
-            javascriptreact = { "biome" },
-            typescript = { "biome" },
-            typescriptreact = { "biome" },
-            json = { "biome" },
-            css = { "biome" },
-        },
-
-        format_on_save = {
-            lsp_fallback = true, -- Use LSP formatters as a fallback if no explicit conform formatter is found for the filetype
-            async = false, -- Format synchronously (prevents writing until formatting is done)
-            timeout_ms = 1000, -- Timeout for formatting (in milliseconds)
-        },
+  },
+  opts = {
+    formatters = {
+      biome = {},
+      stylua = {},
+      prettier = {},
+      zls = {
+        command = "/home/mkd/zls/zls",
+        formatWithErrors = true,
+      },
+      gofmt = {},
     },
+
+    formatters_by_ft = {
+      lua = { "stylua" },
+      javascript = { "biome", "prettier", stop_after_first = true },
+      typescript = { "biome", "prettier", stop_after_first = true },
+      typescriptreact = { "biome", "prettier", stop_after_first = true },
+      zig = { "zls", lsp_format = "prefer" },
+      go = { "goimports", "gofmt" },
+    },
+
+    stop_after_first = false,
+
+    format_on_save = {
+      lsp_fallback = true,
+      async = false,
+      timeout_ms = 1000,
+    },
+  },
 }
