@@ -17,6 +17,7 @@ return {
         "stylua",
         "ts_ls",
         "zls",
+        "vue_ls",
       },
       handlers = {
         -- Default handler for most servers
