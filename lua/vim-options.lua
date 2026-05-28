@@ -7,6 +7,12 @@ vim.cmd "set relativenumber"
 vim.opt.path:append { ".", "src//" }
 vim.g.mapleader = " "
 
+-- folding expressions
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99 -- keep everything unfolded by default
+vim.opt.foldenable = true
+
 -- Key-bindings for termbuffer exit <leader>wn
 vim.cmd "tnoremap <Esc> <C-\\><C-n><C-w>w"
 
@@ -36,6 +42,10 @@ vim.keymap.set("n", "<leader>t", ":sp term://bash<CR>", { noremap = true, silent
 
 -- show floating error
 vim.keymap.set("n", "K", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
+vim.keymap.set("n", "<leader>h", function()
+  vim.lsp.buf.hover()
+  vim.defer_fn(function() pcall(vim.treesitter.stop) end, 50)
+end, { desc = "Show documentation hover (safe)" })
 
 -- intercept terminal requests and add sign
 vim.api.nvim_create_autocmd("TermOpen", {

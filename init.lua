@@ -17,7 +17,6 @@ vim.cmd [[
   syntax enable
 ]]
 
-vim.notify("NEOVIM STARTED", vim.log.levels.INFO)
 -- vim.lsp.enable "stylua"
 -- vim.lsp.enable "lua_ls"
 -- vim.lsp.enable "ts_ls"
@@ -27,5 +26,5 @@ vim.notify("NEOVIM STARTED", vim.log.levels.INFO)
 -- vim.lsp.enable { "ts_ls", "vue_ls" }
 
 require "vim-options"
-require "treesitter_stop"
-require("lazy").setup "plugins"
+-- require "treesitter_stop"
+require("lazy").setup { spec = require "plugins" }

@@ -23,9 +23,10 @@ return {
 
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "biome", "prettier", stop_after_first = true },
-      typescript = { "biome", "prettier", stop_after_first = true },
+      javascript = { "prettier", "biome", stop_after_first = true },
+      typescript = { "prettier", "biome", stop_after_first = true },
       typescriptreact = { "biome", "prettier", stop_after_first = true },
+      vue = { "prettier", stop_after_first = true },
       zig = { "zls", lsp_format = "prefer" },
       go = { "goimports", "gofmt" },
     },
