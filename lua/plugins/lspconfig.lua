@@ -10,6 +10,7 @@ return {
     local mason_lspconfig = require "mason-lspconfig"
     -- local capabilities = require("cmp_nvim_lsp").default_capabilities();
     -- This is a common way to set up LSP servers with mason-lspconfig
+    --
     mason_lspconfig.setup {
       ensure_installed = {
         "biome", -- Ensure biome is in your installed list
@@ -17,6 +18,7 @@ return {
         "stylua",
         "ts_ls",
         "zls",
+        "gopls",
         "vue_ls",
       },
       handlers = {

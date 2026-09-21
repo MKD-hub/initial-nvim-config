@@ -1,12 +1,15 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = "TSUpdate",
-    config = function()
-        local config = require "nvim-treesitter.configs"
-        config.setup {
-            ensure_installed = { "lua", "javascript" },
-            highlight = { enable = true },
-            indent = { enable = true },
-        }
-    end,
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  build = ":TSUpdate",
+  config = function()
+    local ts = require "nvim-treesitter"
+    ts.setup()
+
+    ts.install { "lua", "javascript", "markdown", "markdown_inline", "go" }
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function() pcall(vim.treesitter.start) end,
+    })
+  end,
 }
