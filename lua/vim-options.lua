@@ -23,6 +23,9 @@ vim.keymap.set("n", "<leader>cl", '"+y$', {})
 vim.keymap.set("n", "<leader>gf", "<C-w>v gf<CR>", { noremap = true, silent = true }) -- open in a vertical split
 vim.keymap.set("n", "<leader>gtf", ':tabnew <C-R>=expand("<cfile>")<CR><CR>', { noremap = true, silent = true }) -- open in new tab
 
+-- split view
+vim.keymap.set("n", "<leader>sp", "<C-w>v", { noremap = true, silent = true })
+
 -- Keymaps for tab management
 vim.keymap.set("n", "<leader>n", ":tabnew<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>x", ":tabclose<CR>", { noremap = true, silent = true })
@@ -32,14 +35,16 @@ vim.keymap.set("n", "<leader>}", ":tabmove+<CR>", { noremap = true, silent = tru
 vim.keymap.set("n", "<leader>{", ":tabmove-<CR>", { noremap = true, silent = true })
 
 -- keymaps for terminal windows
-vim.keymap.set("n", "<leader>t", ":sp term://bash<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>t", ":split | terminal<CR>", { noremap = true, silent = true })
 
 -- show floating error
 vim.keymap.set("n", "K", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
 
 -- intercept terminal requests and add sign
 vim.api.nvim_create_autocmd("TermOpen", {
-  command = "setlocal signcolumn=auto",
+  callback = function()
+    command = "setlocal signcolumn=auto", vim.cmd.startinsert()
+  end,
 })
 local ns = vim.api.nvim_create_namespace "my.terminal.prompt"
 vim.api.nvim_create_autocmd("TermRequest", {
